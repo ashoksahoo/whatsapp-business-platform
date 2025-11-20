@@ -131,27 +131,26 @@ This document provides a complete breakdown of implementation tasks. Each sectio
 
 ---
 
-## 4. Core Services
+## 4. Core Services ✅ COMPLETED
 
-### Message Service
-**TODO: CLAUDE_CODE**
+### Message Service ✅
 
 #### Sending Operations
-- [ ] SendTextMessage
+- [x] SendTextMessage
   - Phone number validation
   - Content length validation
   - WhatsApp API call
   - Database storage
   - Auto-create contact if needed
-  
-- [ ] SendMediaMessage
+
+- [x] SendMediaMessage
   - URL validation and accessibility check
   - Media type validation
   - File size limits enforcement
   - WhatsApp API call
   - Store media metadata
-  
-- [ ] SendTemplateMessage
+
+- [x] SendTemplateMessage
   - Template lookup and validation
   - Parameter count validation
   - Parameter substitution
@@ -159,93 +158,85 @@ This document provides a complete breakdown of implementation tasks. Each sectio
   - Database storage
 
 #### Query Operations
-- [ ] GetMessage by ID
-- [ ] ListMessages with filters and pagination
-- [ ] SearchMessages with full-text search
-- [ ] GetMessagesByPhone with pagination
+- [x] GetMessage by ID
+- [x] ListMessages with filters and pagination
+- [x] SearchMessages with full-text search
+- [x] GetMessagesByPhone with pagination
 
 #### Webhook Processing
-- [ ] ProcessIncomingMessage
+- [x] ProcessIncomingMessage
   - Parse webhook payload
   - Get or create contact
   - Store message in database
   - Update contact's last_message_at
   - Update unread count
-  
-- [ ] UpdateMessageStatus
+
+- [x] UpdateMessageStatus
   - Find message by WhatsApp message ID
   - Update status field
   - Update timestamp
 
-### Contact Service
-**TODO: CLAUDE_CODE**
-- [ ] GetOrCreateContact with race condition handling
-- [ ] GetContact by ID
-- [ ] GetContactByPhone
-- [ ] ListContacts with pagination and sorting
-- [ ] SearchContacts by name or phone
-- [ ] UpdateContact with validation
-- [ ] UpdateLastMessage timestamp
-- [ ] IncrementMessageCount atomically
-- [ ] UpdateUnreadCount atomically
+### Contact Service ✅
+- [x] GetOrCreateContact with race condition handling
+- [x] GetContact by ID
+- [x] GetContactByPhone
+- [x] ListContacts with pagination and sorting
+- [x] SearchContacts by name or phone
+- [x] UpdateContact with validation
+- [x] UpdateLastMessage timestamp
+- [x] IncrementMessageCount atomically
+- [x] UpdateUnreadCount atomically
 
-### Template Service
-**TODO: CLAUDE_CODE**
-- [ ] CreateTemplate with validation
-- [ ] GetTemplate by ID
-- [ ] GetTemplateByName with language
-- [ ] ListTemplates with filters
-- [ ] UpdateTemplate
-- [ ] DeleteTemplate (soft delete)
-- [ ] ValidateTemplate structure
-- [ ] SubstituteParameters in template content
+### Template Service ✅
+- [x] CreateTemplate with validation
+- [x] GetTemplate by ID
+- [x] GetTemplateByName with language
+- [x] ListTemplates with filters
+- [x] UpdateTemplate
+- [x] DeleteTemplate (soft delete)
+- [x] ValidateTemplate structure
+- [ ] SubstituteParameters in template content (future enhancement)
 
-### Auth Service
-**TODO: CLAUDE_CODE**
-- [ ] CreateAPIKey (returns raw key once)
-- [ ] ValidateAPIKey against hashed version
-- [ ] RevokeAPIKey
-- [ ] ListAPIKeys
-- [ ] UpdateAPIKey metadata
-- [ ] TrackAPIKeyUsage
+### Auth Service ✅
+- [x] CreateAPIKey (returns raw key once)
+- [x] ValidateAPIKey against hashed version
+- [x] RevokeAPIKey
+- [x] ListAPIKeys
+- [x] UpdateAPIKey metadata
+- [ ] TrackAPIKeyUsage (future enhancement)
 
 ---
 
-## 5. API Handlers
+## 5. API Handlers ✅ COMPLETED
 
 See [HANDLER_TASKS.md](HANDLER_TASKS.md) for detailed handler implementation tasks.
 
-### Messages Handlers
-**TODO: CLAUDE_CODE**
-- [ ] SendMessage - POST /api/v1/messages
-- [ ] GetMessage - GET /api/v1/messages/:id
-- [ ] ListMessages - GET /api/v1/messages
-- [ ] SearchMessages - GET /api/v1/messages/search
+### Messages Handlers ✅
+- [x] SendMessage - POST /api/v1/messages
+- [x] GetMessage - GET /api/v1/messages/:id
+- [x] ListMessages - GET /api/v1/messages
+- [x] SearchMessages - GET /api/v1/messages/search
 
-### Contacts Handlers
-**TODO: CLAUDE_CODE**
-- [ ] ListContacts - GET /api/v1/contacts
-- [ ] GetContact - GET /api/v1/contacts/:id
-- [ ] UpdateContact - PATCH /api/v1/contacts/:id
-- [ ] SearchContacts - GET /api/v1/contacts/search
+### Contacts Handlers ✅
+- [x] ListContacts - GET /api/v1/contacts
+- [x] GetContact - GET /api/v1/contacts/:id
+- [x] UpdateContact - PATCH /api/v1/contacts/:id
+- [x] SearchContacts - GET /api/v1/contacts/search
 
-### Templates Handlers
-**TODO: CLAUDE_CODE**
-- [ ] ListTemplates - GET /api/v1/templates
-- [ ] GetTemplate - GET /api/v1/templates/:id
-- [ ] CreateTemplate - POST /api/v1/templates
-- [ ] UpdateTemplate - PATCH /api/v1/templates/:id
-- [ ] DeleteTemplate - DELETE /api/v1/templates/:id
+### Templates Handlers ✅
+- [x] ListTemplates - GET /api/v1/templates
+- [x] GetTemplate - GET /api/v1/templates/:id
+- [x] CreateTemplate - POST /api/v1/templates
+- [x] UpdateTemplate - PATCH /api/v1/templates/:id
+- [x] DeleteTemplate - DELETE /api/v1/templates/:id
 
-### Webhook Handlers
-**TODO: CLAUDE_CODE**
-- [ ] VerifyWebhook - GET /webhooks/whatsapp
-- [ ] ReceiveWebhook - POST /webhooks/whatsapp
+### Webhook Handlers ✅
+- [x] VerifyWebhook - GET /webhooks/whatsapp
+- [x] ReceiveWebhook - POST /webhooks/whatsapp
 
-### System Handlers
-**TODO: CLAUDE_CODE**
-- [ ] HealthCheck - GET /health
-- [ ] Metrics - GET /metrics (Prometheus)
+### System Handlers ✅
+- [x] HealthCheck - GET /health
+- [ ] Metrics - GET /metrics (Prometheus) (future enhancement)
 
 ### Call Handlers (Future)
 - [ ] Create stubs for all call endpoints
@@ -253,59 +244,54 @@ See [HANDLER_TASKS.md](HANDLER_TASKS.md) for detailed handler implementation tas
 
 ---
 
-## 6. Middleware
+## 6. Middleware ✅ COMPLETED
 
-### Authentication & Security
-**TODO: CLAUDE_CODE**
-- [ ] AuthMiddleware for API key validation
-- [ ] WebhookAuthMiddleware for signature verification
-- [ ] CORS middleware
-- [ ] Security headers middleware
+### Authentication & Security ✅
+- [x] AuthMiddleware for API key validation
+- [x] WebhookAuthMiddleware for signature verification (in webhook handler)
+- [x] CORS middleware
+- [ ] Security headers middleware (future enhancement)
 
-### Request Processing
-**TODO: CLAUDE_CODE**
-- [ ] LoggingMiddleware with structured logs
-- [ ] RequestIDMiddleware
-- [ ] RecoveryMiddleware for panic handling
-- [ ] ValidationMiddleware for request validation
-- [ ] RateLimitMiddleware per API key
-- [ ] TimeoutMiddleware for long requests
-- [ ] CompressionMiddleware for responses
+### Request Processing ✅
+- [x] LoggingMiddleware with structured logs
+- [x] RequestIDMiddleware
+- [x] RecoveryMiddleware for panic handling
+- [ ] ValidationMiddleware for request validation (validation in handlers)
+- [x] RateLimitMiddleware per API key
+- [ ] TimeoutMiddleware for long requests (future enhancement)
+- [ ] CompressionMiddleware for responses (future enhancement)
 
-### Error Handling
-**TODO: CLAUDE_CODE**
-- [ ] ErrorHandlerMiddleware
-- [ ] Error to HTTP status mapping
-- [ ] Detailed error responses with codes
+### Error Handling ✅
+- [x] ErrorHandlerMiddleware (in RecoveryMiddleware)
+- [x] Error to HTTP status mapping
+- [x] Detailed error responses with codes
 
 ---
 
-## 7. API Server Setup
+## 7. API Server Setup ✅ COMPLETED
 
-**TODO: CLAUDE_CODE**
+### Server Initialization ✅
+- [x] Server struct with dependencies
+- [x] Gin engine initialization
+- [x] Middleware registration
+- [x] Route registration
+- [x] Graceful shutdown handling
+- [x] Signal handling (SIGTERM, SIGINT)
 
-### Server Initialization
-- [ ] Server struct with dependencies
-- [ ] Gin engine initialization
-- [ ] Middleware registration
-- [ ] Route registration
-- [ ] Graceful shutdown handling
-- [ ] Signal handling (SIGTERM, SIGINT)
+### Route Registration ✅
+- [x] Create route groups (/api/v1/messages, /api/v1/contacts, etc.)
+- [x] Apply middleware to appropriate groups
+- [x] Register all handler functions
+- [x] Document route structure
 
-### Route Registration
-- [ ] Create route groups (/api/v1/messages, /api/v1/contacts, etc.)
-- [ ] Apply middleware to appropriate groups
-- [ ] Register all handler functions
-- [ ] Document route structure
-
-### Main Entry Point
-- [ ] Load configuration
-- [ ] Initialize database connection
-- [ ] Initialize WhatsApp client
-- [ ] Create all services
-- [ ] Create all handlers
-- [ ] Start server
-- [ ] Handle shutdown cleanup
+### Main Entry Point ✅
+- [x] Load configuration
+- [x] Initialize database connection
+- [x] Initialize WhatsApp client
+- [x] Create all services
+- [x] Create all handlers
+- [x] Start server
+- [x] Handle shutdown cleanup
 
 ---
 
@@ -342,26 +328,24 @@ See [HANDLER_TASKS.md](HANDLER_TASKS.md) for detailed handler implementation tas
 
 ---
 
-## 9. Deployment
+## 9. Deployment ✅ PARTIALLY COMPLETED
 
-### Docker Setup
-**TODO: CLAUDE_CODE**
-- [ ] Multi-stage Dockerfile
+### Docker Setup ✅
+- [x] Multi-stage Dockerfile
   - Builder stage with Go compilation
   - Runtime stage with minimal image
   - Non-root user configuration
   - Health check inclusion
-  
-- [ ] Docker Compose configuration
+
+- [x] Docker Compose configuration
   - Application service
   - PostgreSQL service
   - Network configuration
   - Volume mounts
   - Environment variables
 
-### Build Scripts
-**TODO: CLAUDE_CODE**
-- [ ] Makefile with common tasks
+### Build Scripts ✅
+- [x] Makefile with common tasks
   - build: Compile binary
   - run: Run locally
   - test: Run all tests
@@ -375,10 +359,9 @@ See [HANDLER_TASKS.md](HANDLER_TASKS.md) for detailed handler implementation tas
   - clean: Clean artifacts
 
 ### Deployment Documentation
-**TODO: CLAUDE_CODE**
 - [ ] Local development setup guide
 - [ ] Docker deployment guide
-- [ ] Environment variable documentation
+- [ ] Environment variable documentation (.env.example created)
 - [ ] Database migration guide
 - [ ] Troubleshooting guide
 
