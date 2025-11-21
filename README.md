@@ -191,6 +191,7 @@ This is a **solo-maintained project**. I am not accepting pull requests or exter
 
 ## 📖 Documentation
 
+- **[Setup Guide](./docs/SETUP.md)** - Complete setup and deployment guide
 - **[API Reference](./docs/API.md)** - Complete REST API documentation
 - [API Design](./docs/API_DESIGN.md) - API design specifications
 - [Architecture](./docs/ARCHITECTURE.md) - System architecture
