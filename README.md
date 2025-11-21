@@ -130,34 +130,6 @@ DB_NAME=vibecoded_wa
 
 Switch between databases by changing the `DB_DRIVER` environment variable.
 
-## 📡 API Endpoints
-
-### Messages
-- `POST /api/v1/messages` - Send a message
-- `GET /api/v1/messages` - List messages
-- `GET /api/v1/messages/:id` - Get message
-- `GET /api/v1/messages/search` - Search messages
-
-### Contacts
-- `GET /api/v1/contacts` - List contacts
-- `GET /api/v1/contacts/:id` - Get contact
-- `PATCH /api/v1/contacts/:id` - Update contact
-- `GET /api/v1/contacts/search` - Search contacts
-
-### Templates
-- `GET /api/v1/templates` - List templates
-- `POST /api/v1/templates` - Create template
-- `GET /api/v1/templates/:id` - Get template
-- `PATCH /api/v1/templates/:id` - Update template
-- `DELETE /api/v1/templates/:id` - Delete template
-
-### Webhooks
-- `GET /webhooks/whatsapp` - Webhook verification
-- `POST /webhooks/whatsapp` - Receive webhook events
-
-### System
-- `GET /health` - Health check
-
 ## 🎨 Frontend Features
 
 Built with the **Strawberry Theme** design system:
@@ -245,11 +217,12 @@ This is a **solo-maintained project**. I am not accepting pull requests or exter
 
 ## 📖 Documentation
 
-- [API Design](./docs/API_DESIGN.md)
-- [Architecture](./docs/ARCHITECTURE.md)
-- [Data Models](./docs/DATA_MODELS.md)
-- [UI/UX Guide](./docs/design/UI_UX_GUIDE.md)
-- [Frontend README](./frontend/README.md)
+- **[API Reference](./docs/API.md)** - Complete REST API documentation
+- [API Design](./docs/API_DESIGN.md) - API design specifications
+- [Architecture](./docs/ARCHITECTURE.md) - System architecture
+- [Data Models](./docs/DATA_MODELS.md) - Database schema
+- [UI/UX Guide](./docs/design/UI_UX_GUIDE.md) - Design system
+- [Frontend README](./frontend/README.md) - Frontend documentation
 
 ## 🎯 Use Cases
 
