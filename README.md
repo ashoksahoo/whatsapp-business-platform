@@ -7,6 +7,8 @@
 [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)](https://react.dev/)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
+**[Website](https://ashok.io/whatsapp-business-platform/)** · **[API Docs](./docs/API.md)** · **[Setup Guide](./docs/SETUP.md)**
+
 ## What is This?
 
 A production-ready, self-hosted WhatsApp Business API platform. Built with a Go backend and React frontend, it gives you full control over your WhatsApp Business integration — no third-party SaaS required.
