@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/ashok/vibecoded-wa-client/pkg/utils"
+	"github.com/ashoksahoo/whatsapp-business-platform/pkg/utils"
 )
 
 // VerifySignature verifies the webhook signature using HMAC-SHA256

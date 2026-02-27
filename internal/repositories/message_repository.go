@@ -3,8 +3,8 @@ package repositories
 import (
 	"time"
 
-	"github.com/ashok/vibecoded-wa-client/internal/models"
-	"github.com/ashok/vibecoded-wa-client/pkg/utils"
+	"github.com/ashoksahoo/whatsapp-business-platform/internal/models"
+	"github.com/ashoksahoo/whatsapp-business-platform/pkg/utils"
 	"gorm.io/gorm"
 )
 

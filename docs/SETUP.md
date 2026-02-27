@@ -31,8 +31,8 @@ You need a WhatsApp Business API account with:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/ashoksahoo/vibecode-wa-business.git
-cd vibecode-wa-business
+git clone https://github.com/ashoksahoo/whatsapp-business-platform.git
+cd whatsapp-business-platform
 ```
 
 ### 2. Configure Environment
@@ -51,7 +51,7 @@ ENV=development
 
 # Database (SQLite for development - no setup needed!)
 DB_DRIVER=sqlite
-DB_SQLITE_PATH=./vibecoded.db
+DB_SQLITE_PATH=./whatsapp_platform.db
 
 # WhatsApp Business Cloud API (REQUIRED)
 WHATSAPP_PHONE_NUMBER_ID=your_phone_number_id_here
@@ -190,13 +190,13 @@ curl -X POST http://localhost:8080/api/v1/messages \
 
 **No setup needed!** The database file is created automatically when you start the server.
 
-- Database file: `./vibecoded.db`
+- Database file: `./whatsapp_platform.db`
 - Migrations run automatically on startup
 - Perfect for local development and testing
 
 **To reset the database:**
 ```bash
-rm vibecoded.db
+rm whatsapp_platform.db
 # Restart the server - fresh database will be created
 ```
 
@@ -219,7 +219,7 @@ For production deployments with higher load:
 
 2. **Create Database**
    ```bash
-   createdb vibecoded_wa
+   createdb whatsapp_platform
    ```
 
 3. **Update .env**
@@ -229,7 +229,7 @@ For production deployments with higher load:
    DB_PORT=5432
    DB_USER=postgres
    DB_PASSWORD=your_password
-   DB_NAME=vibecoded_wa
+   DB_NAME=whatsapp_platform
    DB_SSL_MODE=disable
    ```
 
@@ -276,12 +276,12 @@ This starts PostgreSQL on port 5432 with the credentials from `.env`
 
 ```bash
 # Build
-docker build -t vibecoded-wa-client .
+docker build -t whatsapp-business-platform .
 
 # Run
 docker run -p 8080:8080 \
   --env-file .env \
-  vibecoded-wa-client
+  whatsapp-business-platform
 ```
 
 ---
@@ -370,7 +370,7 @@ package main
 
 import (
     "fmt"
-    "github.com/ashok/vibecoded-wa-client/pkg/utils"
+    "github.com/ashok/whatsapp-business-platform/pkg/utils"
 )
 
 func main() {
@@ -396,7 +396,7 @@ go run cmd/create-key/main.go
 **Error: Database connection failed**
 - Check database credentials in `.env`
 - Ensure PostgreSQL is running (if using postgres)
-- For SQLite, check file permissions for `./vibecoded.db`
+- For SQLite, check file permissions for `./whatsapp_platform.db`
 
 **Error: Port already in use**
 ```bash

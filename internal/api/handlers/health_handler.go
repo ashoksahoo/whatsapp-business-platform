@@ -3,7 +3,7 @@ package handlers
 import (
 	"time"
 
-	"github.com/ashok/vibecoded-wa-client/internal/database"
+	"github.com/ashoksahoo/whatsapp-business-platform/internal/database"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )

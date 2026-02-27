@@ -3,7 +3,7 @@ package utils
 import (
 	"net/http"
 
-	"github.com/ashok/vibecoded-wa-client/pkg/errors"
+	"github.com/ashoksahoo/whatsapp-business-platform/pkg/errors"
 	"github.com/gin-gonic/gin"
 )
 

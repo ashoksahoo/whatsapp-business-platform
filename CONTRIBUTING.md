@@ -1,160 +1,109 @@
-# Contributing to Vibecoded WA Client
+# Contributing to WhatsApp Business Platform
 
-Thank you for your interest in Vibecoded WA Client! 🎉
+Thank you for your interest in contributing! This is an open-source project and contributions are welcome.
 
-## 🚫 Contribution Policy
+## Ways to Contribute
 
-**This project does not accept external contributions** at this time.
+- **Bug reports** — Open an issue describing the bug and how to reproduce it
+- **Feature requests** — Open an issue describing the feature and use case
+- **Bug fixes** — Submit a pull request with the fix
+- **New features** — Open an issue first to discuss the approach, then submit a PR
+- **Documentation** — Improve docs, fix typos, add examples
+- **Tests** — Add missing tests or improve existing coverage
 
-### Why?
+## Getting Started
 
-This is a **solo-maintained, vibecoded project** where I'm:
-- Maintaining full creative control
-- Showcasing AI-assisted development methodology
-- Keeping the codebase aligned with a specific vision
-- Demonstrating what one person can build with vibecoding
+1. **Fork the repository**
+2. **Clone your fork**
+```bash
+git clone https://github.com/YOUR_USERNAME/whatsapp-business-platform.git
+cd whatsapp-business-platform
+```
 
-### What You CAN Do Instead
+3. **Create a feature branch**
+```bash
+git checkout -b feature/your-feature-name
+```
 
-While I'm not accepting contributions, you're absolutely free to:
+4. **Make your changes** and ensure everything works
 
-#### ✅ Fork the Project
-- Create your own version
-- Modify it to fit your needs
-- Add features you want
-- Develop independently
+5. **Run tests**
+```bash
+go test ./...
+cd frontend && npm run lint
+```
 
-#### ✅ Use the Code
-- Deploy in your own projects
-- Integrate into your systems
-- Build commercial products (MIT License)
-- Learn from the code
+6. **Commit your changes**
+```bash
+git commit -m "feat: add your feature description"
+```
 
-#### ✅ Share Feedback
-- Star the repo if you find it useful
-- Share it with others who might benefit
-- Fork it and show what you built
-- Link back if you create something cool
+7. **Push and open a PR**
+```bash
+git push origin feature/your-feature-name
+```
 
-## 🍴 How to Fork
+## Development Setup
 
-1. Click the "Fork" button on GitHub
-2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/vibecoded-wa-client.git`
-3. Make it your own!
-4. (Optional) Share what you built
+See the [README](README.md) for full setup instructions.
 
-## 💡 Found a Bug?
+Quick start:
+```bash
+cp .env.example .env
+# Fill in your WhatsApp credentials
+go run cmd/server/main.go
+```
 
-Since Issues are disabled, here's what you can do:
+## Commit Convention
 
-### Option 1: Fix It Yourself
-1. Fork the repo
-2. Fix the bug in your fork
-3. Use your fixed version
-4. (Optional) Document the fix for others in your fork's README
+Use conventional commits:
 
-### Option 2: Wait for Me
-- I'm actively developing and testing
-- Bugs will be fixed in regular updates
-- Check back for new releases
+- `feat:` — New feature
+- `fix:` — Bug fix
+- `docs:` — Documentation changes
+- `test:` — Adding or updating tests
+- `refactor:` — Code change that's not a fix or feature
+- `chore:` — Maintenance tasks
 
-## 🎯 Feature Requests?
+## Pull Request Guidelines
 
-I'm building this based on my own roadmap and vision. However:
+- Keep PRs focused — one feature or fix per PR
+- Include tests for new functionality
+- Update documentation if needed
+- Ensure `go test ./...` passes
+- Ensure `npm run lint` passes in `frontend/`
+- Write a clear PR description explaining what and why
 
-- If you want a feature, **fork and add it yourself**
-- The MIT license gives you full freedom to extend the project
-- Your fork can take a completely different direction
+## Reporting Bugs
 
-## 📖 Documentation Improvements?
+Open a GitHub issue with:
+- Go version and OS
+- Steps to reproduce
+- Expected vs actual behavior
+- Relevant logs or error messages
 
-Since this is vibecoded, documentation is part of the development process:
-- All docs are AI-assisted
-- They're updated continuously during development
-- If you find an error in your fork, fix the docs there
+## Feature Requests
 
-## 🤝 Collaboration Ideas?
+Open a GitHub issue with:
+- The problem you're trying to solve
+- Your proposed solution
+- Any alternatives you've considered
 
-### Want to Build Something Similar?
-- Feel free to use this as inspiration
-- Fork and create your own variant
-- Build complementary tools
-- Link back to this repo if you want
+## Code Style
 
-### Want to Learn Vibecoding?
-- Study how this project is structured
-- Look at commit history (once development starts)
-- Fork and experiment
-- Build your own vibecoded projects
+**Go**
+- Follow standard Go conventions (`gofmt`)
+- Run `go vet ./...` before submitting
+- Keep functions small and focused
 
-## 🔗 Licensing
+**TypeScript/React**
+- Follow the existing code patterns
+- Run `npm run lint` before submitting
 
-This project is licensed under the **MIT License**, which means:
+## License
 
-- ✅ You can use it commercially
-- ✅ You can modify it
-- ✅ You can distribute it
-- ✅ You can use it privately
-- ✅ You must include the license and copyright notice
-
-The only thing you can't do is hold me liable. That's it!
-
-## 📬 Questions?
-
-### About the Project
-- Check the [README.md](../README.md)
-- Read the [PRD.md](./PRD.md)
-- Review the [ROADMAP.md](./ROADMAP.md)
-
-### About Deployment
-- Wait for the deployment guide (coming soon)
-- Check the Docker setup when released
-- Experiment in your fork
-
-### About Vibecoding
-- This entire project is a demonstration
-- Watch how it evolves
-- Learn by studying the code
-
-## 🌟 Show Your Support
-
-The best way to support this project is to:
-- ⭐ **Star the repository** on GitHub
-- 🍴 **Fork it** and build something cool
-- 📢 **Share it** with others who might find it useful
-- 💬 **Talk about it** on social media or blog posts
-- 🔗 **Link back** if you create a derivative work
-
-## 🎵 About Vibecoding
-
-Vibecoding is AI-assisted development where:
-- Claude helps write code, docs, and tests
-- The developer maintains vision and quality
-- AI accelerates development significantly
-- Results are production-quality
-
-This project is a showcase of what's possible.
-
-## 🚀 Final Thoughts
-
-While this project doesn't accept contributions, it's designed to be:
-- **Fork-friendly** - easy to customize
-- **Well-documented** - easy to understand
-- **Open source** - freely available
-- **Production-ready** - actually useful
-
-Think of it less as a community project and more as:
-- A **reference implementation** you can learn from
-- A **starter template** you can build upon
-- A **working solution** you can deploy
-- A **vibecoding showcase** demonstrating the methodology
-
-**Thank you for understanding!** 🙏
-
-If you fork this and build something awesome, I'd love to hear about it (though I can't promise to respond to everything).
+By contributing, you agree that your contributions will be licensed under the MIT License.
 
 ---
 
-**Happy forking! 🍴**
-
-Built with 🎵 vibecoding | MIT License | Solo-maintained by Ashok
+**Thank you for helping make this project better!**

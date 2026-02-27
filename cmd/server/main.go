@@ -7,10 +7,10 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/ashok/vibecoded-wa-client/internal/api"
-	"github.com/ashok/vibecoded-wa-client/internal/config"
-	"github.com/ashok/vibecoded-wa-client/internal/database"
-	"github.com/ashok/vibecoded-wa-client/pkg/logger"
+	"github.com/ashoksahoo/whatsapp-business-platform/internal/api"
+	"github.com/ashoksahoo/whatsapp-business-platform/internal/config"
+	"github.com/ashoksahoo/whatsapp-business-platform/internal/database"
+	"github.com/ashoksahoo/whatsapp-business-platform/pkg/logger"
 	"go.uber.org/zap"
 	gormlogger "gorm.io/gorm/logger"
 )

@@ -3,7 +3,7 @@ package database
 import (
 	"fmt"
 
-	"github.com/ashok/vibecoded-wa-client/internal/models"
+	"github.com/ashoksahoo/whatsapp-business-platform/internal/models"
 	"gorm.io/gorm"
 )
 

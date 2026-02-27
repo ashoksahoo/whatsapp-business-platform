@@ -1,9 +1,9 @@
 package routes
 
 import (
-	"github.com/ashok/vibecoded-wa-client/internal/api/handlers"
-	"github.com/ashok/vibecoded-wa-client/internal/api/middleware"
-	"github.com/ashok/vibecoded-wa-client/internal/services"
+	"github.com/ashoksahoo/whatsapp-business-platform/internal/api/handlers"
+	"github.com/ashoksahoo/whatsapp-business-platform/internal/api/middleware"
+	"github.com/ashoksahoo/whatsapp-business-platform/internal/services"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )

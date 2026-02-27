@@ -1,10 +1,10 @@
 package services
 
 import (
-	"github.com/ashok/vibecoded-wa-client/internal/models"
-	"github.com/ashok/vibecoded-wa-client/internal/repositories"
-	"github.com/ashok/vibecoded-wa-client/pkg/errors"
-	"github.com/ashok/vibecoded-wa-client/pkg/utils"
+	"github.com/ashoksahoo/whatsapp-business-platform/internal/models"
+	"github.com/ashoksahoo/whatsapp-business-platform/internal/repositories"
+	"github.com/ashoksahoo/whatsapp-business-platform/pkg/errors"
+	"github.com/ashoksahoo/whatsapp-business-platform/pkg/utils"
 )
 
 // ContactService handles contact business logic

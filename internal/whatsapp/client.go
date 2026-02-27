@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ashok/vibecoded-wa-client/pkg/errors"
+	"github.com/ashoksahoo/whatsapp-business-platform/pkg/errors"
 	"github.com/go-resty/resty/v2"
 	"go.uber.org/zap"
 )

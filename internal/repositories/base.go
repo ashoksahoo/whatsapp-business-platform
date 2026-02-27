@@ -1,7 +1,7 @@
 package repositories
 
 import (
-	"github.com/ashok/vibecoded-wa-client/pkg/utils"
+	"github.com/ashoksahoo/whatsapp-business-platform/pkg/utils"
 	"gorm.io/gorm"
 )
 

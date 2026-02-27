@@ -1,47 +1,46 @@
-# Vibecoded WA Client
+# WhatsApp Business Platform
 
-> 🍓 A self-hosted WhatsApp Business API client with a beautiful React frontend
+> Modern, open-source WhatsApp Business Platform
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Go Version](https://img.shields.io/badge/Go-1.21+-00ADD8?logo=go)](https://go.dev/)
 [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)](https://react.dev/)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-## 🎯 What is This?
+## What is This?
 
-A production-ready WhatsApp Business API client that you can self-host. Built with Go backend and React frontend, featuring a beautiful strawberry-themed UI.
+A production-ready, self-hosted WhatsApp Business API platform. Built with a Go backend and React frontend, it gives you full control over your WhatsApp Business integration — no third-party SaaS required.
 
-## ✨ Available Features
+## Features
 
 ### Backend (REST API)
-- ✅ Send text messages via WhatsApp
-- ✅ Send media messages (images, documents, audio, video)
-- ✅ Send template messages
-- ✅ Receive incoming messages via webhooks
-- ✅ Contact management (auto-creation, search, updates)
-- ✅ Message history and search
-- ✅ Template management
-- ✅ API key authentication
-- ✅ Rate limiting
-- ✅ Comprehensive logging
+- Send text messages via WhatsApp
+- Send media messages (images, documents, audio, video)
+- Send template messages
+- Receive incoming messages via webhooks
+- Contact management (auto-creation, search, updates)
+- Message history and search
+- Template management
+- API key authentication
+- Rate limiting (1000 req/min per key)
+- Structured logging with zap
 
 ### Frontend (React + Tailwind)
-- ✅ Messages page with real-time messaging interface
-- ✅ Contacts page with search and management
-- ✅ Templates page for message templates
-- ✅ Strawberry theme design system
-- ✅ Responsive layout
-- ✅ Toast notifications
-- ✅ TypeScript for type safety
+- Messages page with real-time messaging interface
+- Contacts page with search and management
+- Templates page for message templates
+- Responsive layout with toast notifications
+- TypeScript for type safety
 
 ### Infrastructure
-- ✅ SQLite database (development) / PostgreSQL (production)
-- ✅ Docker & Docker Compose setup
-- ✅ Environment-based configuration
-- ✅ Health check endpoints
-- ✅ Auto-migrations
-- ✅ Graceful shutdown
+- SQLite (development) / PostgreSQL (production)
+- Docker & Docker Compose setup
+- Environment-based configuration
+- Health check endpoints
+- Auto-migrations
+- Graceful shutdown
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -54,8 +53,8 @@ A production-ready WhatsApp Business API client that you can self-host. Built wi
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/ashoksahoo/vibecode-wa-business.git
-cd vibecode-wa-business
+git clone https://github.com/ashoksahoo/whatsapp-business-platform.git
+cd whatsapp-business-platform
 ```
 
 2. **Configure environment**
@@ -106,18 +105,17 @@ docker-compose up
 docker-compose --profile postgres up
 ```
 
-## 📊 Database Options
+## Database Options
 
 ### Development (SQLite - Default)
-No setup needed! The SQLite database is created automatically.
+No setup needed. The SQLite database is created automatically.
 
 ```env
 DB_DRIVER=sqlite
-DB_SQLITE_PATH=./vibecoded.db
+DB_SQLITE_PATH=./data.db
 ```
 
 ### Production (PostgreSQL)
-For production deployments with higher load:
 
 ```env
 DB_DRIVER=postgres
@@ -125,27 +123,16 @@ DB_HOST=your-postgres-host
 DB_PORT=5432
 DB_USER=your-user
 DB_PASSWORD=your-password
-DB_NAME=vibecoded_wa
+DB_NAME=whatsapp_platform
 ```
 
-Switch between databases by changing the `DB_DRIVER` environment variable.
-
-## 🎨 Frontend Features
-
-Built with the **Strawberry Theme** design system:
-
-- **Primary Color**: Strawberry Red (#f43f5e)
-- **Success Color**: Leaf Green (#22c55e)
-- **Font**: Inter
-- **Components**: Fully responsive, accessible, with smooth animations
-
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 - **Language**: Go 1.21+
-- **Framework**: Gin (web framework)
+- **Framework**: Gin
 - **ORM**: GORM
-- **Database**: SQLite (dev) / PostgreSQL (prod)
+- **Database**: SQLite / PostgreSQL
 - **API**: WhatsApp Business Cloud API
 
 ### Frontend
@@ -157,17 +144,16 @@ Built with the **Strawberry Theme** design system:
 - **HTTP Client**: Axios
 - **Icons**: Lucide React
 
-## 🔜 Coming Soon
+## Roadmap
 
-### Voice Calling 🎙️
+### Voice Calling
 - Make & receive voice calls on WhatsApp
 - Automatic call recording
 - AI transcription (Whisper/Deepgram)
 - Voice AI agents
-- Searchable call history
 - Call analytics
 
-### Enhanced Features
+### Enhanced Messaging
 - Interactive messages (buttons, lists)
 - Message scheduling
 - Bulk messaging
@@ -176,73 +162,59 @@ Built with the **Strawberry Theme** design system:
 - Webhook forwarding
 
 ### Integrations
-- MCP server for Claude AI integration
+- MCP server for Claude AI
 - Prometheus metrics
 - S3/Minio for media storage
 
-## 🚫 Contribution Policy
+## Contributing
 
-This is a **solo-maintained project**. I am not accepting pull requests or external contributions.
+Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-**However, you are free to:**
-- ✅ Fork and modify
-- ✅ Use commercially (MIT License)
-- ✅ Create derivative works
-
-## 📖 Documentation
+## Documentation
 
 - **[Setup Guide](./docs/SETUP.md)** - Complete setup and deployment guide
 - **[API Reference](./docs/API.md)** - Complete REST API documentation
-- [API Design](./docs/API_DESIGN.md) - API design specifications
 - [Architecture](./docs/ARCHITECTURE.md) - System architecture
 - [Data Models](./docs/DATA_MODELS.md) - Database schema
-- [UI/UX Guide](./docs/design/UI_UX_GUIDE.md) - Design system
-- [Frontend README](./frontend/README.md) - Frontend documentation
 
-## 🎯 Use Cases
+## Use Cases
 
-- **Customer Support**: Handle WhatsApp inquiries
-- **Notifications**: Send order updates and alerts
+- **Customer Support**: Handle WhatsApp inquiries at scale
+- **Notifications**: Send order updates and transactional alerts
 - **Marketing**: Send promotional messages via templates
 - **Integration**: Connect WhatsApp to your existing systems
 - **AI Assistants**: Build chatbots and automated responses
 
-## 📝 Environment Variables
+## Environment Variables
 
 See [.env.example](./.env.example) for all available configuration options.
 
 Key variables:
-- `DB_DRIVER` - Database driver (sqlite/postgres)
+- `DB_DRIVER` - Database driver (`sqlite` / `postgres`)
 - `WHATSAPP_ACCESS_TOKEN` - Your WhatsApp API token
 - `WHATSAPP_PHONE_NUMBER_ID` - Your WhatsApp phone number ID
-- `SERVER_PORT` - API server port (default: 8080)
+- `SERVER_PORT` - API server port (default: `8080`)
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
-### Database Issues
-- SQLite: Check file permissions for `./vibecoded.db`
+**Database Issues**
+- SQLite: Check file permissions for the DB path
 - PostgreSQL: Verify connection credentials in `.env`
 
-### WhatsApp API Issues
-- Verify your access token is valid
+**WhatsApp API Issues**
+- Verify your access token is valid and not expired
 - Check webhook URL is publicly accessible
 - Ensure phone number ID is correct
 
-### Frontend Connection
+**Frontend Connection**
 - Verify backend is running on the correct port
-- Check CORS settings if accessing from different origin
+- Check CORS settings if accessing from a different origin
 - Ensure API key is set in frontend `.env`
 
-## 📝 License
+## License
 
-MIT License - See [LICENSE](LICENSE) for details.
-
-## 🙏 Acknowledgments
-
-Built with [Claude](https://claude.ai) - AI-assisted development at its finest!
+MIT License — See [LICENSE](LICENSE) for details.
 
 ---
 
-**⭐ If you find this useful, please star the repo!**
-
-Built with 🍓 by Ashok | MIT License | Solo-maintained
+**If you find this useful, please star the repo!**
