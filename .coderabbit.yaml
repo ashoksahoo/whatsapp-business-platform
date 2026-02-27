@@ -1,0 +1,137 @@
+language: "en-US"
+early_access: false
+
+reviews:
+  profile: "assertive"
+  request_changes_workflow: false
+  high_level_summary: true
+  review_status: true
+  collapse_walkthrough: false
+  sequence_diagrams: true
+  estimate_code_review_effort: true
+  assess_linked_issues: true
+  related_issues: true
+  related_prs: true
+  suggested_labels: true
+  auto_apply_labels: false
+  suggested_reviewers: true
+  auto_assign_reviewers: false
+
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - main
+
+  path_filters:
+    - "!**/*.db"
+    - "!storage/**"
+    - "!bin/**"
+    - "!**/node_modules/**"
+    - "!frontend/dist/**"
+    - "!coverage.out"
+    - "!*.sum"
+
+  path_instructions:
+    - path: "internal/**/*.go"
+      instructions: |
+        Review for clean layered architecture (handler → service → repository).
+        Check that handlers don't contain business logic.
+        Ensure errors use custom types from pkg/errors/.
+        Verify structured zap logging with request IDs is used.
+        Flag any direct database access from handlers.
+        Check for proper context propagation and cancellation handling.
+
+    - path: "internal/api/handlers/**/*.go"
+      instructions: |
+        Handlers should only parse requests, call services, and return responses.
+        Ensure all endpoints validate input and return proper HTTP status codes.
+        Check that X-API-Key auth middleware is applied to all /api/v1 routes.
+        Verify response structs don't leak internal model fields.
+
+    - path: "internal/services/**/*.go"
+      instructions: |
+        Services own business logic. Check for proper transaction handling.
+        Ensure WhatsApp API errors are wrapped with WhatsAppError type.
+        Verify outbound message flow: service → WhatsApp client → save to DB.
+        Check inbound webhook flow: signature verification → service → DB.
+
+    - path: "internal/repositories/**/*.go"
+      instructions: |
+        Repositories should only contain GORM data access.
+        Verify soft deletes use GORM's DeletedAt and not hard deletes.
+        Check that UUIDs are used as primary keys, not auto-increment integers.
+        Ensure queries use indexes defined on models.
+
+    - path: "internal/whatsapp/**/*.go"
+      instructions: |
+        Review retry logic for transient WhatsApp API failures.
+        Check for proper timeout handling on HTTP calls.
+        Ensure API tokens are never logged.
+        Validate that webhook signature verification is cryptographically sound.
+
+    - path: "internal/models/**/*.go"
+      instructions: |
+        All models must embed BaseModel for UUID, timestamps, and soft delete.
+        Check GORM tags for proper indexing on frequently queried fields.
+        Verify custom types (MessageType, MessageStatus, etc.) are used consistently.
+
+    - path: "frontend/src/**/*.tsx"
+      instructions: |
+        Review for React 18 best practices and hooks correctness.
+        Check that Axios calls handle loading, error, and success states.
+        Ensure Tailwind classes follow the Strawberry Theme palette (rose-500 primary).
+        Verify no API keys or secrets are hardcoded — use env vars only.
+        Flag missing error boundaries for data-fetching components.
+
+    - path: "frontend/src/**/*.ts"
+      instructions: |
+        Check TypeScript types are explicit — avoid 'any'.
+        Ensure API response types match backend response structs.
+
+    - path: "internal/voice/**/*.go"
+      instructions: |
+        Voice/SIP/WebRTC code is in active development.
+        Review carefully for security issues in media handling.
+        Check for proper cleanup of call resources on hangup.
+
+    - path: "**/*_test.go"
+      instructions: |
+        Tests should cover happy path, error cases, and edge cases.
+        Check that mocks are used for WhatsApp client and external dependencies.
+        Verify table-driven tests are used for functions with multiple input variations.
+
+    - path: "docker-compose.yml"
+      instructions: |
+        Review for exposed secrets or hardcoded credentials.
+        Ensure health checks are defined for all services.
+        Check that SQLite and PostgreSQL profiles are correctly separated.
+
+    - path: ".env.example"
+      instructions: |
+        Verify no real credentials are present — only placeholder values.
+        Ensure all required environment variables are documented.
+
+tools:
+  golangci-lint:
+    enabled: true
+  gitleaks:
+    enabled: true
+  trivy:
+    enabled: true
+  hadolint:
+    enabled: true
+  markdownlint:
+    enabled: true
+  yamllint:
+    enabled: true
+  eslint:
+    enabled: true
+
+chat:
+  auto_reply: true
+
+knowledge_base:
+  web_search: true
+  learnings:
+    scope: repository
