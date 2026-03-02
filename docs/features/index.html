@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feature Documentation | WhatsApp Business Platform</title>
+  <style>
+    :root {
+      --green-dark: #128c7e;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-600: #4b5563;
+      --gray-900: #111827;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--gray-900);
+      background: var(--white);
+      line-height: 1.6;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+    .top-links { margin-bottom: 1.25rem; }
+    .top-links a { color: var(--green-dark); text-decoration: none; font-weight: 600; }
+    h1 { margin: 0 0 0.5rem; font-size: 2rem; }
+    .sub { color: var(--gray-600); margin-bottom: 2rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 1rem;
+      background: var(--gray-50);
+    }
+    .card:hover { border-color: #86efac; }
+    .card h3 { margin: 0 0 0.35rem; font-size: 1rem; }
+    .card p { margin: 0; color: var(--gray-600); font-size: 0.92rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-links">
+      <a href="../index.html">← Back to Docs Home</a>
+    </div>
+    <h1>Feature Documentation</h1>
+    <p class="sub">Detailed implementation notes, API references, data flow, and engineering guidance for each feature card.</p>
+
+    <div class="grid">
+      <a class="card" href="messaging.html"><h3>💬 Messaging</h3><p>Text, media, template sending, status lifecycle, and delivery handling.</p></a>
+      <a class="card" href="templates.html"><h3>📋 Templates</h3><p>Template model, lifecycle, sending semantics, and compliance constraints.</p></a>
+      <a class="card" href="contacts.html"><h3>👥 Contacts</h3><p>Contact indexing, auto-creation from webhooks, search, and profile updates.</p></a>
+      <a class="card" href="webhooks.html"><h3>🔔 Webhooks</h3><p>Verification flow, signature checks, event parsing, and idempotent processing.</p></a>
+      <a class="card" href="api-key-auth.html"><h3>🔐 API Key Auth</h3><p>Bearer auth model, hashing, key lifecycle, and rate-limiting integration.</p></a>
+      <a class="card" href="flexible-database.html"><h3>🗄️ Flexible Database</h3><p>SQLite/PostgreSQL operation model, migrations, and performance practices.</p></a>
+      <a class="card" href="react-dashboard.html"><h3>🖥️ React Dashboard</h3><p>Frontend architecture, data integration patterns, and deployment behavior.</p></a>
+      <a class="card" href="docker-ready.html"><h3>🐳 Docker Ready</h3><p>Compose profiles, local/prod flow, and runtime operations guidance.</p></a>
+      <a class="card" href="voice-calling.html"><h3>🔜 Voice Calling (Coming)</h3><p>Planned architecture for call processing, recording, and AI enhancements.</p></a>
+    </div>
+  </div>
+</body>
+</html>
