@@ -185,6 +185,15 @@
       border: 1px solid var(--gray-200);
       border-radius: var(--radius);
       padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-2px);
+      border-color: #86efac;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
     }
     .feature-icon {
       width: 44px;
@@ -199,6 +208,16 @@
     }
     .feature-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
     .feature-card p { font-size: 0.9rem; color: var(--gray-600); }
+    .feature-docs-link {
+      margin-top: 1.25rem;
+      text-align: center;
+    }
+    .feature-docs-link a {
+      color: var(--green-dark);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .feature-docs-link a:hover { text-decoration: underline; }
 
     /* QUICK START */
     .quickstart { background: var(--gray-50); }
@@ -303,6 +322,7 @@
   </a>
   <div class="nav-links">
     <a href="#features">Features</a>
+    <a href="features/index.html">Feature Docs</a>
     <a href="#quickstart">Quick Start</a>
     <a href="#stack">Stack</a>
     <a href="https://github.com/ashoksahoo/whatsapp-business-platform/blob/main/docs/API.md">API Docs</a>
@@ -357,52 +377,53 @@
     <h2 class="section-title">Everything you need</h2>
     <p class="section-sub">A complete platform for WhatsApp Business — messaging, contacts, templates, webhooks, and more.</p>
     <div class="features-grid">
-      <div class="feature-card">
+      <a class="feature-card" href="features/messaging.html">
         <div class="feature-icon">💬</div>
         <h3>Messaging</h3>
         <p>Send text, media (images, video, audio, documents), and template messages via a clean REST API.</p>
-      </div>
-      <div class="feature-card">
+      </a>
+      <a class="feature-card" href="features/templates.html">
         <div class="feature-icon">📋</div>
         <h3>Templates</h3>
         <p>Create, manage, and send approved WhatsApp message templates with dynamic parameters.</p>
-      </div>
-      <div class="feature-card">
+      </a>
+      <a class="feature-card" href="features/contacts.html">
         <div class="feature-icon">👥</div>
         <h3>Contacts</h3>
         <p>Auto-create contacts from incoming messages. Search, update, and manage your contact list.</p>
-      </div>
-      <div class="feature-card">
+      </a>
+      <a class="feature-card" href="features/webhooks.html">
         <div class="feature-icon">🔔</div>
         <h3>Webhooks</h3>
         <p>Receive incoming messages and status updates in real-time with signature verification.</p>
-      </div>
-      <div class="feature-card">
+      </a>
+      <a class="feature-card" href="features/api-key-auth.html">
         <div class="feature-icon">🔐</div>
         <h3>API Key Auth</h3>
         <p>Secure API key authentication with salted hashing, rate limiting, and request logging.</p>
-      </div>
-      <div class="feature-card">
+      </a>
+      <a class="feature-card" href="features/flexible-database.html">
         <div class="feature-icon">🗄️</div>
         <h3>Flexible Database</h3>
         <p>SQLite for development, PostgreSQL for production. Switch with a single environment variable.</p>
-      </div>
-      <div class="feature-card">
+      </a>
+      <a class="feature-card" href="features/react-dashboard.html">
         <div class="feature-icon">🖥️</div>
         <h3>React Dashboard</h3>
         <p>Beautiful, responsive frontend for managing messages, contacts, and templates — no code needed.</p>
-      </div>
-      <div class="feature-card">
+      </a>
+      <a class="feature-card" href="features/docker-ready.html">
         <div class="feature-icon">🐳</div>
         <h3>Docker Ready</h3>
         <p>One command to run everything. Docker Compose profiles for both SQLite and PostgreSQL setups.</p>
-      </div>
-      <div class="feature-card">
+      </a>
+      <a class="feature-card" href="features/voice-calling.html">
         <div class="feature-icon">🔜</div>
         <h3>Voice Calling (Coming)</h3>
         <p>Voice calls on WhatsApp with recording, AI transcription, and call analytics.</p>
-      </div>
+      </a>
     </div>
+    <p class="feature-docs-link"><a href="features/index.html">Open all feature documentation →</a></p>
   </div>
 </section>
 

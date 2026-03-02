@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docker Ready Feature | WhatsApp Business Platform</title>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #111827; }
+    .container { max-width: 980px; margin: 0 auto; padding: 2rem; }
+    a { color: #128c7e; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    pre { background: #111827; color: #d1fae5; padding: 0.9rem; border-radius: 8px; overflow: auto; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p><a href="index.html">← All Features</a> · <a href="../index.html">Docs Home</a></p>
+    <h1>🐳 Docker Ready</h1>
+    <p>Containerized runtime for fast onboarding and repeatable deployments.</p>
+
+    <h2>Compose Profiles</h2>
+    <ul>
+      <li>Default compose path for app + SQLite development</li>
+      <li><code>postgres</code> profile for app + PostgreSQL stack</li>
+    </ul>
+
+    <h2>Common Commands</h2>
+    <pre># SQLite profile
+docker-compose up -d
+
+# PostgreSQL profile
+docker-compose --profile postgres up -d
+
+# Follow logs
+docker-compose logs -f app
+
+# Stop containers
+docker-compose down</pre>
+
+    <h2>Engineering Practices</h2>
+    <ul>
+      <li>Keep runtime configuration in environment variables</li>
+      <li>Use health checks for service readiness</li>
+      <li>Avoid baking secrets into images</li>
+      <li>Pin critical image versions to improve reproducibility</li>
+    </ul>
+
+    <h2>References</h2>
+    <ul>
+      <li><a href="../SETUP.md">Setup Guide</a></li>
+      <li><a href="../TECHNICAL_REQUIREMENTS.md">Technical Requirements</a></li>
+    </ul>
+  </div>
+</body>
+</html>

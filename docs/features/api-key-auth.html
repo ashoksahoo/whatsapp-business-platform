@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Key Auth Feature | WhatsApp Business Platform</title>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #111827; }
+    .container { max-width: 980px; margin: 0 auto; padding: 2rem; }
+    a { color: #128c7e; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p><a href="index.html">← All Features</a> · <a href="../index.html">Docs Home</a></p>
+    <h1>🔐 API Key Authentication</h1>
+    <p>Authentication and authorization gate for protected REST endpoints.</p>
+
+    <h2>Auth Contract</h2>
+    <ul>
+      <li>Header: <code>Authorization: Bearer YOUR_API_KEY</code></li>
+      <li>Public endpoints: health check and webhook routes</li>
+      <li>All <code>/api/v1</code> routes require valid API key</li>
+    </ul>
+
+    <h2>Security Model</h2>
+    <ul>
+      <li>Store only hashed keys (never plaintext)</li>
+      <li>Support key revocation and rotation</li>
+      <li>Track key usage in audit logs</li>
+      <li>Apply per-key rate limits for abuse control</li>
+    </ul>
+
+    <h2>Middleware Guidance</h2>
+    <ul>
+      <li>Extract and validate Bearer token format</li>
+      <li>Resolve key identity via secure hash verification</li>
+      <li>Attach caller context to request lifecycle</li>
+      <li>Return <code>401 Unauthorized</code> on invalid credentials</li>
+    </ul>
+
+    <h2>References</h2>
+    <ul>
+      <li><a href="../API.md">API Reference</a></li>
+      <li><a href="../ARCHITECTURE.md">Architecture</a></li>
+      <li><a href="../TECHNICAL_REQUIREMENTS.md">Technical Requirements</a></li>
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Messaging Feature | WhatsApp Business Platform</title>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #111827; }
+    .container { max-width: 980px; margin: 0 auto; padding: 2rem; }
+    a { color: #128c7e; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .meta { color: #4b5563; margin-bottom: 1.5rem; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    pre { background: #111827; color: #d1fae5; padding: 0.9rem; border-radius: 8px; overflow: auto; }
+    h1, h2 { line-height: 1.25; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p><a href="index.html">← All Features</a> · <a href="../index.html">Docs Home</a></p>
+    <h1>💬 Messaging</h1>
+    <p class="meta">Covers message sending, retrieval, filtering, search, and delivery status tracking.</p>
+
+    <h2>Overview</h2>
+    <p>The messaging module is the core runtime path for outbound and inbound communication. It supports text, media, and template payloads, stores canonical message records, and exposes query endpoints for operational visibility.</p>
+
+    <h2>Primary Endpoints</h2>
+    <ul>
+      <li><code>POST /api/v1/messages</code> — send text, media, or template messages</li>
+      <li><code>GET /api/v1/messages/:id</code> — retrieve a single message</li>
+      <li><code>GET /api/v1/messages</code> — list messages with pagination and filters</li>
+      <li><code>GET /api/v1/messages/search</code> — full-text style message content search</li>
+    </ul>
+
+    <h2>Payload Model</h2>
+    <ul>
+      <li><strong>Required:</strong> recipient (<code>to</code>), <code>message_type</code></li>
+      <li><strong>Text:</strong> <code>content</code></li>
+      <li><strong>Media:</strong> <code>media_url</code> plus optional <code>content</code> caption/title</li>
+      <li><strong>Template:</strong> <code>template_name</code>, <code>template_language</code>, <code>template_params</code></li>
+    </ul>
+
+    <h2>Status Lifecycle</h2>
+    <p>Messages progress through <code>sent</code> → <code>delivered</code> → <code>read</code>, or terminate in <code>failed</code>. Status updates are typically propagated by webhook events and merged into existing message rows by WhatsApp message ID.</p>
+
+    <h2>Validation Rules</h2>
+    <ul>
+      <li>Phone numbers must follow E.164 format (<code>+{country}{number}</code>)</li>
+      <li>Outbound payload shape depends on <code>message_type</code></li>
+      <li>Template messages require an approved template in WhatsApp Manager</li>
+      <li>Rate limits apply per API key</li>
+    </ul>
+
+    <h2>Dev Notes</h2>
+    <ul>
+      <li>Persist both internal ID and <code>whatsapp_message_id</code> for reconciliation</li>
+      <li>Prefer async retry for transient WhatsApp API failures</li>
+      <li>Add idempotency guard for duplicate send attempts from clients</li>
+      <li>Keep transport errors and provider errors separately observable</li>
+    </ul>
+
+    <h2>Example Request</h2>
+    <pre>curl -X POST http://localhost:8080/api/v1/messages \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "to": "+1234567890",
+    "message_type": "text",
+    "content": "Hello from the platform"
+  }'</pre>
+
+    <h2>References</h2>
+    <ul>
+      <li><a href="../API.md">API Reference</a></li>
+      <li><a href="../API_DESIGN.md">API Design</a></li>
+      <li><a href="../ARCHITECTURE.md">Architecture</a></li>
+    </ul>
+  </div>
+</body>
+</html>
